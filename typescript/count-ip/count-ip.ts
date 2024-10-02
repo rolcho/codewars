@@ -4,7 +4,7 @@ export function ipsBetween2(start: string, end: string): number {
       .split(".")
       .map(Number)
       .reduce((res, x, i) => res + x * 256 ** (3 - i), 0);
-  return ipToNumber(end) - ipToNumber(start) ?? -1;
+  return ipToNumber(end) - ipToNumber(start);
 }
 
 export function ipsBetween1(start: string, end: string): number {
