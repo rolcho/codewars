@@ -1,17 +1,12 @@
 export function decoder(encoded: string, marker: string): string {
-  const text = encoded.split("");
-  const decoded: string[] = [];
-  let reverseDirection = false;
+  const text = encoded.split(marker);
+  const forwarded: string[] = [];
+  const reversed: string[] = [];
 
-  for (let i = 0; i < encoded.length; i++) {
-    if (encoded[i] === marker) {
-      reverseDirection ? text.pop() : text.shift();
-      reverseDirection = !reverseDirection;
-      continue;
-    }
-    reverseDirection
-      ? decoded.push(text.pop() ?? "")
-      : decoded.push(text.shift() ?? "");
+  for (let i = 0; i < text.length; i++) {
+    i % 2
+      ? reversed.unshift(text[i].split("").reverse().join(""))
+      : forwarded.push(text[i]);
   }
-  return decoded.join("");
+  return [...forwarded, ...reversed].join("");
 }
