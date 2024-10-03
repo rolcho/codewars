@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountCharacters", "CountCharacters\CountCharacters.csproj", "{130AF238-4A12-4FBF-B47D-C101AFFE2E4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsecutiveString", "ConsecutiveString\ConsecutiveString.csproj", "{44C38A0E-7F5D-412D-9B24-4FE6FA5761B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{130AF238-4A12-4FBF-B47D-C101AFFE2E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{130AF238-4A12-4FBF-B47D-C101AFFE2E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{130AF238-4A12-4FBF-B47D-C101AFFE2E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44C38A0E-7F5D-412D-9B24-4FE6FA5761B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44C38A0E-7F5D-412D-9B24-4FE6FA5761B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44C38A0E-7F5D-412D-9B24-4FE6FA5761B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44C38A0E-7F5D-412D-9B24-4FE6FA5761B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
