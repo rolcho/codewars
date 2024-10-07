@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayPlusOne", "ArrayPlusOn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitString", "SplitString\SplitString.csproj", "{BCED5A98-BA14-4357-B350-06676AAB3BC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoBoringZeros", "NoBoringZeros\NoBoringZeros.csproj", "{984F5C34-79D3-400C-91F4-4C93296846B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BCED5A98-BA14-4357-B350-06676AAB3BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCED5A98-BA14-4357-B350-06676AAB3BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCED5A98-BA14-4357-B350-06676AAB3BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{984F5C34-79D3-400C-91F4-4C93296846B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{984F5C34-79D3-400C-91F4-4C93296846B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{984F5C34-79D3-400C-91F4-4C93296846B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{984F5C34-79D3-400C-91F4-4C93296846B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
