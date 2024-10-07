@@ -7,12 +7,17 @@ public class SplitString
         if (string.IsNullOrEmpty(str))
             return null;
 
-        foreach (char c in str)
+        if (str.Length % 2 != 0)
+            str += "_";
+
+        List<string> pairs = [];
+
+        for (int i = 0; i < str.Length; i += 2)
         {
-            Console.WriteLine(c);
+            pairs.Add($"{str[i]}{str[i + 1]}");
         }
 
-        return null;
+        return [.. pairs];
     }
 }
 
