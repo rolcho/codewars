@@ -1,52 +1,57 @@
-﻿// Your task in this Kata is to emulate text justification in monospace font. You will be given a single-lined text and the expected justification width. The longest word will never be greater than this width.
-
-// Here are the rules:
-
-// Use spaces to fill in the gaps between words.
-// Each line should contain as many words as possible.
-// Use '\n' to separate lines.
-// Last line should not terminate in '\n'
-// '\n' is not included in the length of a line.
-// Gaps between words can't differ by more than one space.
-// Lines should end with a word not a space.
-// Large gaps go first, then smaller ones ('Lorem--ipsum--dolor--sit-amet,' (2, 2, 2, 1 spaces)).
-// Last line should not be justified, use only one space between words.
-// Lines with one word do not need gaps ('somelongword\n').
-
-using System.Text;
+﻿using System.Text;
 
 static string JustifyText(string str, int len)
 {
-    Span<string> getWordsInParagraphs(string p) => p.Split(" ").AsSpan();
-    Span<string> paragraphs = str.Split("\n").AsSpan();
-    string[][][] splittedText = [];
-    int paragraphIndex = 0;
-    int lineIndex = 0;
-    var sb = new StringBuilder();
-
-    foreach (var p in paragraphs)
+    string DistributeWords(List<string> words, int length)
     {
-        var words = getWordsInParagraphs(p);
-        int charInLine = 0;
-        int wordInLine = 0;
-        for (int wordIndex = 0; wordIndex < words.Length; wordIndex++)
+        int spaces = length - words.Sum(w => w.Length);
+        int gaps = words.Count - 1;
+        if (gaps == 0)
         {
-            int wordLength = words[wordIndex].Length;
-            
-            if (charInLine + wordLength + wordInLine > len)
-            {
-                lineIndex++;
-                charInLine = 0;
-                wordInLine = 0;
-            }
-
-            _ = splittedText[paragraphIndex][lineIndex].Append(words[wordIndex]);
-            charInLine += wordLength;
-            wordInLine++;
+            return words[0];
         }
+
+        int normalSpace = spaces / gaps;
+        int extraSpace = spaces % gaps;
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < words.Count; i++)
+        {
+            sb.Append(words[i]);
+            if (i < words.Count - 1)
+            {
+                if (i < extraSpace)
+                {
+                    sb.Append(' ', normalSpace + 1);
+                }
+                else
+                {
+                    sb.Append(' ', normalSpace);
+                }
+            }
+        }
+        return sb.ToString();
     }
 
-    return "";
+    List<string> words = str.Split(" ").ToList();
+    List<string> justified = new List<string>();
+    List<string> currentLine = new List<string>();
+    int currentWidth = 0;
+
+    foreach (string word in words)
+    {
+        if (currentWidth + word.Length + currentLine.Count > len)
+        {
+            justified.Add(DistributeWords(currentLine, len));
+            currentWidth = 0;
+            currentLine = new List<string>();
+        }
+
+        currentLine.Add(word);
+        currentWidth += word.Length;
+    }
+    justified.Add(string.Join(' ', currentLine));
+    return string.Join('\n', justified);
 }
 
-JustifyText("Lorem ipsum dolor sit amet", 10);
+Console.WriteLine(JustifyText("123 45 6 789", 7));
