@@ -1,12 +1,3 @@
-// Interesting numbers are 3-or-more digit numbers that meet one or more of the following criteria:
-
-// Any digit followed by all zeros: 100, 90000
-// Every digit is the same number: 1111
-// The digits are sequential, incementing†: 1234
-// The digits are sequential, decrementing‡: 4321
-// The digits are a palindrome: 1221 or 73837
-// The digits match one of the values in the awesomePhrases array
-
 const convertToArray = (n: number) =>
   n
     .toString()
@@ -14,6 +5,7 @@ const convertToArray = (n: number) =>
     .map((d) => Number.parseInt(d));
 
 const rules = (nums: number[]): boolean => {
+  if (nums.length < 3) return false;
   let isFollowedByZeros = true;
   let isSameDigits = true;
   let isIncrementDigits = true;
@@ -25,7 +17,8 @@ const rules = (nums: number[]): boolean => {
       isFollowedByZeros = nums[i] === 0 && isFollowedByZeros;
       isSameDigits = nums[i] === nums[i - 1] && isSameDigits;
       isDecrementDigits = nums[i] === nums[i - 1] - 1 && isDecrementDigits;
-      isIncrementDigits = nums[i] === nums[i - 1] + 1 && isIncrementDigits;
+      isIncrementDigits =
+        nums[i] === (nums[i - 1] + 1) % 10 && isIncrementDigits;
     }
     isPalindrome = nums[i] === nums[nums.length - i - 1] && isPalindrome;
   }
@@ -38,16 +31,27 @@ const rules = (nums: number[]): boolean => {
     isPalindrome
   );
 };
+
 export function isInteresting(n: number, awesomePhrases: number[]): number {
+  if (awesomePhrases.includes(n)) return 2;
+  if (awesomePhrases.includes(n + 1) || awesomePhrases.includes(n + 2))
+    return 1;
+
   const digits = convertToArray(n);
-  const result = rules(digits);
+  const digitsMinusOne = convertToArray(n + 1);
+  const digitsMinusTwo = convertToArray(n + 2);
+  if (rules(digits)) return 2;
+  if (rules(digitsMinusOne) || rules(digitsMinusTwo)) return 1;
+
   return 0;
 }
 
-isInteresting(100, []);
-isInteresting(90000, []);
-isInteresting(1111, []);
-isInteresting(1234, []);
-isInteresting(4321, []);
-isInteresting(1221, []);
-isInteresting(73837, []);
+console.log(isInteresting(98, []));
+console.log(isInteresting(109, []));
+
+// test(3, [1337, 256],     0);
+// test(1336, [1337, 256],  1);
+// test(1337, [1337, 256],  2);
+// test(11208, [1337, 256], 0);
+// test(11209, [1337, 256], 1);
+// test(11211, [1337, 256], 2);
