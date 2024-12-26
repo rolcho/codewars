@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficLightsOneCar", "Traf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindTheSmallest", "FindTheSmalles\FindTheSmallest.csproj", "{C18BBCA8-A49B-4038-9DA5-2B30D534A01C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumbers", "RomanNumbers\RomanNumbers.csproj", "{D861DCE2-C66A-483E-8633-4AE40C1D1A29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{C18BBCA8-A49B-4038-9DA5-2B30D534A01C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C18BBCA8-A49B-4038-9DA5-2B30D534A01C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C18BBCA8-A49B-4038-9DA5-2B30D534A01C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D861DCE2-C66A-483E-8633-4AE40C1D1A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D861DCE2-C66A-483E-8633-4AE40C1D1A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D861DCE2-C66A-483E-8633-4AE40C1D1A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D861DCE2-C66A-483E-8633-4AE40C1D1A29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
