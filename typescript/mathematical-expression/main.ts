@@ -2,44 +2,39 @@ type Operand = "*" | "/" | "+" | "-";
 
 type MathNode = {
   value: Operand | number | undefined;
-  leftNode: MathNode | undefined;
-  rightNode: MathNode | undefined;
+  leftNode?: MathNode;
+  rightNode?: MathNode;
 };
 
-const input = "2+3-4*5/6";
+const input = "2+3-4-1";
+const operands = "+-*/";
+const isOperand = (s: string) => operands.includes(s);
 
-function parseTree(input: string): MathNode | undefined {
-  if (input.length === 0) return undefined;
-  const hasOperand =
-    input.includes("*") ||
-    input.includes("/") ||
-    input.includes("+") ||
-    input.includes("-");
-  if (!isNaN(Number.parseInt(input)) && !hasOperand)
-    return {
-      value: Number.parseInt(input),
-      leftNode: undefined,
-      rightNode: undefined,
-    };
-  const firstPlus = input.indexOf("+");
-  const firstMinus = input.indexOf("-");
-  const firstMultiply = input.indexOf("*");
-  const firstDivide = input.indexOf("/");
-  const firstOperand = Math.min(
-    firstPlus < 0 ? Infinity : firstPlus,
-    firstMinus < 0 ? Infinity : firstMinus,
-    firstMultiply < 0 ? Infinity : firstMultiply,
-    firstDivide < 0 ? Infinity : firstDivide
-  );
-  const operand = input[firstOperand] as Operand;
-  const leftString = input.slice(0, firstOperand);
-  const rightString = input.slice(firstOperand + 1);
-  return {
-    value: operand,
-    leftNode: parseTree(leftString),
-    rightNode: parseTree(rightString),
-  };
+function parseExpressions(input: string): string[] {
+  const expressions: string[] = [];
+  let current = "";
+  for (const char of input) {
+    if (isOperand(char)) {
+      expressions.push(current);
+      expressions.push(char);
+      current = "";
+      continue;
+    }
+    current += char;
+  }
+  expressions.push(current);
+  return expressions;
 }
 
-const tree = parseTree(input);
+function parseTree(input: string[]): MathNode | undefined {
+  if (input.length === 0) return undefined;
+  const root: MathNode = { value: undefined };
+  for (const str of input) {
+    if (root.value === undefined) root.value = Number.parseFloat(str);
+  }
+  return undefined;
+}
+
+const parsedInput = parseExpressions(input);
+const tree = parseTree(parsedInput);
 console.log({ tree });
