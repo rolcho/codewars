@@ -9,5 +9,3 @@ export const towerBuilder = (nFloors: number): string[] => {
   }
   return pyramid;
 };
-
-console.log(towerBuilder(5));
