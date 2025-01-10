@@ -11,8 +11,3 @@ export const towerBuilder = (nFloors: number): string[] => {
 };
 
 console.log(towerBuilder(5));
-/*
- *
- ***
- *****
- */
