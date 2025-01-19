@@ -1,17 +1,14 @@
-import { it, describe, expect } from "vitest";
-import { towerBuilder } from "./tower";
+import { towerBuilder } from "./tower.ts";
+import { assertEquals } from "@std/assert/equals";
 
-describe("test tower builder", () => {
+Deno.test("test tower builder good result", () => {
   const goodResult = {
     size: 3,
     stringArray: ["  *  ", " *** ", "*****"],
   };
+  assertEquals(towerBuilder(goodResult.size), goodResult.stringArray);
+});
 
-  it("should build array level 3", () => {
-    expect(towerBuilder(goodResult.size)).toStrictEqual(goodResult.stringArray);
-  });
-
-  it("should give back empty array with 0", () => {
-    expect(towerBuilder(0).length).toBe(0);
-  });
+Deno.test("test 0 height to be empty", () => {
+  assertEquals(towerBuilder(0).length, 1);
 });

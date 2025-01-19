@@ -1,6 +1,5 @@
 export const towerBuilder = (nFloors: number): string[] => {
   const pyramid = new Array<string>(nFloors);
-  console.log(pyramid);
   for (let i = 0; i < nFloors; i++) {
     pyramid[i] = "*"
       .repeat(i * 2 + 1)
