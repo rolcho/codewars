@@ -1,14 +1,15 @@
 import { towerBuilder } from "./tower.ts";
-import { assertEquals } from "@std/assert/equals";
+import { it, describe, assert, expect } from "vitest";
+describe("test build pyramid", () => {
+  it("should return 3 element array at height 3", () => {
+    const goodResult = {
+      size: 3,
+      stringArray: ["  *  ", " *** ", "*****"],
+    };
+    expect(towerBuilder(goodResult.size)).toEqual(goodResult.stringArray);
+  });
 
-Deno.test("test tower builder good result", () => {
-  const goodResult = {
-    size: 3,
-    stringArray: ["  *  ", " *** ", "*****"],
-  };
-  assertEquals(towerBuilder(goodResult.size), goodResult.stringArray);
-});
-
-Deno.test("test 0 height to be empty", () => {
-  assertEquals(towerBuilder(0).length, 1);
+  it("should return empty array at 0 height", () => {
+    expect(towerBuilder(0).length).toBe(0);
+  });
 });
