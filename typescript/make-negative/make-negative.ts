@@ -1,3 +1,1 @@
-export const makeNegative = (num: number): number => {
-  return num ? -num : 0;
-};
+export const makeNegative = (num: number): number => (num > 0 ? -num : num);

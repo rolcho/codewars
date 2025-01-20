@@ -3,17 +3,17 @@ import { makeNegative } from "./make-negative";
 
 describe("it should return negative", () => {
   it("should return negative when input is positive", () => {
-    const input = 1;
-    const output = -1;
+    const input = 9;
+    const output = -9;
 
     const result = makeNegative(input);
 
     expect(result).toBe(output);
   });
 
-  it("should return positive when input is negative", () => {
+  it("should return negative when input is negative", () => {
     const input = -5;
-    const output = 5;
+    const output = -5;
 
     const result = makeNegative(input);
 
