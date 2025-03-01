@@ -19,7 +19,3 @@ export function decoder(encoded: string, marker: string): string {
   }
   return [...forwarded, ...reversed].join("");
 }
-
-const encoded1 = "hea|ed|rt|oc";
-const marker = "|";
-console.log(decoder(encoded1, marker) === "heartcode");
