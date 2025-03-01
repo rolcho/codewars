@@ -43,6 +43,7 @@ export function getScore(dice: number[]): number {
     }
     return subSum;
   };
+
   let sum = 0;
 
   sum += numberOfSame(diceMap, 6);
@@ -56,20 +57,4 @@ export function getScore(dice: number[]): number {
   if (diceMap.has(5) && diceMap.get(5)! < 3) sum += diceMap.get(5)! * 50;
 
   return sum;
-}
-
-const dices = [
-  [1, 2, 3],
-  [3, 4, 1, 1, 5],
-  [2, 3, 2, 3, 3, 2],
-  [1, 1, 1, 1, 1, 5],
-  [2, 3, 4, 3, 6, 6],
-  [2, 2, 6, 6, 2, 2],
-  [1, 3, 4, 3, 4, 1],
-  [3, 3, 3, 3],
-  [1, 2, 3, 4, 5],
-];
-for (const dice of dices) {
-  console.log(dice);
-  console.log(getScore(dice));
 }
