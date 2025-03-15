@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "@jest/globals";
 import { evenOrOdd } from "./even-or-odd";
 
 describe("return even or odd", () => {

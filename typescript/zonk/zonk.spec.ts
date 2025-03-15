@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "@jest/globals";
 import { getScore } from "./zonk";
 
 describe("getScore", () => {

@@ -8,6 +8,3 @@ export const towerBuilder = (nFloors: number): string[] => {
   }
   return pyramid;
 };
-
-towerBuilder(3);
-console.log("finished");

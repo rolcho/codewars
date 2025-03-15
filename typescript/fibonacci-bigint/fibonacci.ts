@@ -3,7 +3,7 @@
  *
  * @yields The next Fibonacci number in the sequence.
  */
-export function* fibonacciSequence(): Iterator<bigint> {
+export function* fibonacciSequence(): Iterator<bigint, bigint, bigint> {
   let previous = 0n;
   let current = 1n;
   while (true) {

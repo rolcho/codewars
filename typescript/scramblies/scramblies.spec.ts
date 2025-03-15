@@ -3,7 +3,7 @@ scramble('rkqodlw', 'world') ==> True
 scramble('cedewaraaossoqqyt', 'codewars') ==> True
 scramble('katas', 'steak') ==> False
 */
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "@jest/globals";
 import { scramble } from "./scramblies";
 
 describe("check word letters in letters", () => {

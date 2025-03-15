@@ -1,5 +1,6 @@
 import { towerBuilder } from "./tower.ts";
-import { it, describe, assert, expect } from "vitest";
+import { it, describe, expect } from "@jest/globals";
+
 describe("test build pyramid", () => {
   it("should return 3 element array at height 3", () => {
     const goodResult = {
