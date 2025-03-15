@@ -1,6 +1,5 @@
 {
   "name": "typescript",
-  "module": "index.ts",
   "type": "module",
   "devDependencies": {
     "@jest/globals": "^29.7.0",
