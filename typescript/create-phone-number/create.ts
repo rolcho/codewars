@@ -12,16 +12,13 @@
  */
 export function createPhoneNumber(numbers: number[]): string {
   if (numbers.length !== 10) throw new Error("Invalid number of digits");
-  numbers.forEach((num) => {
+  for (const num of numbers) {
     if (Number.isNaN(num) || Math.floor(num) !== num || num < 0)
       throw new Error("Invalid digit");
-  });
-  const phoneNumber =
-    "(" +
-    numbers.splice(0, 3).join("") +
-    ") " +
-    numbers.splice(0, 3).join("") +
-    "-" +
-    numbers.join("");
+  }
+  const areaCode = numbers.splice(0, 3).join("");
+  const firstPart = numbers.splice(0, 3).join("");
+  const secondPart = numbers.join("");
+  const phoneNumber = `(${areaCode}) ${firstPart}-${secondPart}`;
   return phoneNumber;
 }
