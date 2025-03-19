@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "@jest/globals";
 import { sumPairs } from "./sum-of-pairs";
 
 describe("Sum of pairs", () => {
@@ -9,7 +9,7 @@ describe("Sum of pairs", () => {
 
     const result = sumPairs(array, sum);
 
-    expect(result).toBe(numbers);
+    expect(result).toStrictEqual(numbers);
   });
   it("should return the correct value if [4, 3, 2, 3, 4] has pairs", () => {
     const array = [4, 3, 2, 3, 4];
@@ -18,7 +18,7 @@ describe("Sum of pairs", () => {
 
     const result = sumPairs(array, sum);
 
-    expect(result).toBe(numbers);
+    expect(result).toStrictEqual(numbers);
   });
   it("should return the correct value if [10, 5, 2, 3, 7, 5] has pairs", () => {
     const array = [10, 5, 2, 3, 7, 5];
@@ -27,7 +27,7 @@ describe("Sum of pairs", () => {
 
     const result = sumPairs(array, sum);
 
-    expect(result).toBe(numbers);
+    expect(result).toStrictEqual(numbers);
   });
   it("should return undefined if hasn't got pairs", () => {
     const array = [0, 0, -2, 3];
@@ -35,6 +35,6 @@ describe("Sum of pairs", () => {
 
     const result = sumPairs(array, sum);
 
-    expect(result).toBe(undefined);
+    expect(result).toStrictEqual(undefined);
   });
 });
