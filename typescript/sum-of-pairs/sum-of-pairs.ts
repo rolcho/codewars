@@ -12,14 +12,14 @@ export function sumPairs(
 ): [number, number] | undefined {
   const seen = new Map<number, number>();
   let result: [number, number] | undefined;
-  let lowestRightIndex = Infinity;
+  let lowestRightIndex = Number.POSITIVE_INFINITY;
 
   for (let i = 0; i < ints.length; i++) {
     const current = ints[i];
     const complement = s - current;
-
-    if (seen.has(complement)) {
-      const leftIndex = seen.get(complement)!;
+    const complementIndex = seen.get(complement);
+    if (complementIndex !== undefined) {
+      const leftIndex = complementIndex;
       if (i < lowestRightIndex) {
         lowestRightIndex = i;
         result = [ints[leftIndex], current];
