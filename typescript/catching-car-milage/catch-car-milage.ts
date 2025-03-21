@@ -1,9 +1,21 @@
+/**
+ * Converts a number to an array of its digits.
+ * @param {number} n - The number to convert
+ * @returns {number[]} An array of digits
+ */
 const convertToArray = (n: number) =>
   n
     .toString()
     .split("")
     .map((d) => Number.parseInt(d));
 
+/**
+ * Checks if a number follows any of the interesting number rules.
+ * Rules include: followed by zeros, same digits, incrementing digits,
+ * decrementing digits, or palindrome.
+ * @param {number[]} nums - Array of digits to check
+ * @returns {boolean} True if the number follows any of the rules
+ */
 const rules = (nums: number[]): boolean => {
   if (nums.length < 3) return false;
   let isFollowedByZeros = true;
@@ -32,6 +44,17 @@ const rules = (nums: number[]): boolean => {
   );
 };
 
+/**
+ * Determines how interesting a number is based on defined rules and custom phrases.
+ * Returns:
+ * - 2: If the number is interesting
+ * - 1: If the number will become interesting in the next 2 miles
+ * - 0: If the number is not interesting
+ *
+ * @param {number} n - The number to check
+ * @param {number[]} awesomePhrases - Array of custom interesting numbers
+ * @returns {number} The interestingness score (0, 1, or 2)
+ */
 export function isInteresting(n: number, awesomePhrases: number[]): number {
   if (awesomePhrases.includes(n)) return 2;
   if (awesomePhrases.includes(n + 1) || awesomePhrases.includes(n + 2))
@@ -45,13 +68,3 @@ export function isInteresting(n: number, awesomePhrases: number[]): number {
 
   return 0;
 }
-
-console.log(isInteresting(98, []));
-console.log(isInteresting(109, []));
-
-// test(3, [1337, 256],     0);
-// test(1336, [1337, 256],  1);
-// test(1337, [1337, 256],  2);
-// test(11208, [1337, 256], 0);
-// test(11209, [1337, 256], 1);
-// test(11211, [1337, 256], 2);
