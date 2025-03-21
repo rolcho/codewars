@@ -27,8 +27,8 @@ describe("isInteresting", () => {
     });
 
     it("returns 1 for a number that will be followed by zeros in next 2 miles", () => {
-      expect(isInteresting(999, [])).toBe(1);
-      expect(isInteresting(998, [])).toBe(1);
+      expect(isInteresting(1999, [])).toBe(1);
+      expect(isInteresting(1998, [])).toBe(1);
     });
   });
 
@@ -64,8 +64,8 @@ describe("isInteresting", () => {
     });
 
     it("returns 1 for a number that will have decrementing digits in next 2 miles", () => {
-      expect(isInteresting(4322, [])).toBe(1);
-      expect(isInteresting(4323, [])).toBe(1);
+      expect(isInteresting(4319, [])).toBe(1);
+      expect(isInteresting(4320, [])).toBe(1);
     });
   });
 
@@ -84,15 +84,14 @@ describe("isInteresting", () => {
   describe("Edge cases", () => {
     it("handles small numbers correctly", () => {
       expect(isInteresting(0, [])).toBe(0);
-      expect(isInteresting(99, [])).toBe(0);
+      expect(isInteresting(99, [])).toBe(1);
       expect(isInteresting(98, [])).toBe(1);
       expect(isInteresting(97, [])).toBe(0);
     });
 
     it("handles multiple rules at once", () => {
       expect(isInteresting(1000, [])).toBe(2);
-
-      expect(isInteresting(999, [])).toBe(1);
+      expect(isInteresting(999, [])).toBe(2);
     });
   });
 

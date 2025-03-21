@@ -3,7 +3,7 @@
  * @param {number} n - The number to convert
  * @returns {number[]} An array of digits
  */
-const convertToArray = (n: number) =>
+const convertToArray = (n: number): number[] =>
   n
     .toString()
     .split("")
