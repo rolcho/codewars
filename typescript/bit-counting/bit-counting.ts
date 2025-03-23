@@ -5,10 +5,11 @@
  * @returns The number of 1 bits in the binary representation of n
  */
 export function countBits(n: number): number {
+  let x = n;
   let count = 0;
-  while (n > 0) {
-    count += n % 2;
-    n = Math.floor(n / 2);
+  while (x > 0) {
+    count += x % 2;
+    x = Math.floor(x / 2);
   }
   return count;
 }
