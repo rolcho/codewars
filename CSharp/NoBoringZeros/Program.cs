@@ -1,6 +1,6 @@
 ﻿namespace NoBoringZeros;
 
-class Program
+static class Program
 {
     public static int NoBoringZeros(int n)
     {
@@ -11,5 +11,8 @@ class Program
         return n;
     }
 
-    static void Main(string[] args) { }
+    private static void Main(string[] args)
+    {
+        Console.WriteLine(NoBoringZeros(3000));
+    }
 }
