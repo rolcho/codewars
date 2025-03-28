@@ -7,4 +7,3 @@ export class Kata {
   }
 }
 
-console.log(Kata.highAndLow("1 2 3 4 5"));
