@@ -3,23 +3,23 @@ import { validBraces } from './valid-braces';
 
 describe('check valid braces', () => {
   it('should return true if barces are empty', () => {
-    const emptyBraces = "";
+    const emptyBraces = '';
 
     const result = validBraces(emptyBraces);
 
     expect(result).toBe(true);
   });
 
-  it("should return true if brace pairs are correct", () => {
-    const validBracePairs = "{[]()}";
+  it('should return true if brace pairs are correct', () => {
+    const validBracePairs = '{[]()}';
 
     const result = validBraces(validBracePairs);
 
     expect(result).toBe(true);
   });
 
-  it("should return false if brace pairs are incorrect", () => {
-    const validBracePairs = "{[(])}";
+  it('should return false if brace pairs are incorrect', () => {
+    const validBracePairs = '{[(])}';
 
     const result = validBraces(validBracePairs);
 
@@ -27,7 +27,7 @@ describe('check valid braces', () => {
   });
 
   it("should return false if brace pairs don't close", () => {
-    const validBracePairs = "{[(][}";
+    const validBracePairs = '{[(][}';
 
     const result = validBraces(validBracePairs);
 

@@ -1,8 +1,8 @@
-import { describe, expect, it } from "@jest/globals";
-import { makeNegative } from "./make-negative";
+import { describe, expect, it } from '@jest/globals';
+import { makeNegative } from './make-negative';
 
-describe("it should return negative", () => {
-  it("should return negative when input is positive", () => {
+describe('it should return negative', () => {
+  it('should return negative when input is positive', () => {
     const input = 9;
     const output = -9;
 
@@ -11,7 +11,7 @@ describe("it should return negative", () => {
     expect(result).toBe(output);
   });
 
-  it("should return negative when input is negative", () => {
+  it('should return negative when input is negative', () => {
     const input = -5;
     const output = -5;
 
@@ -20,7 +20,7 @@ describe("it should return negative", () => {
     expect(result).toBe(output);
   });
 
-  it("should return zero when input is zero", () => {
+  it('should return zero when input is zero', () => {
     const input = 0;
     const output = 0;
 

@@ -1,4 +1,4 @@
-type Operand = "*" | "/" | "+" | "-";
+type Operand = '*' | '/' | '+' | '-';
 
 type MathNode = {
   value: Operand | number | undefined;
@@ -6,18 +6,18 @@ type MathNode = {
   rightNode?: MathNode;
 };
 
-const input = "2+3-4-1";
-const operands = "+-*/";
+const input = '2+3-4-1';
+const operands = '+-*/';
 const isOperand = (s: string) => operands.includes(s);
 
 function parseExpressions(input: string): string[] {
   const expressions: string[] = [];
-  let current = "";
+  let current = '';
   for (const char of input) {
     if (isOperand(char)) {
       expressions.push(current);
       expressions.push(char);
-      current = "";
+      current = '';
       continue;
     }
     current += char;

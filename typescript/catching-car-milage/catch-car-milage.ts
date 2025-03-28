@@ -6,7 +6,7 @@
 const convertToArray = (n: number): number[] =>
   n
     .toString()
-    .split("")
+    .split('')
     .map((d) => Number.parseInt(d));
 
 /**

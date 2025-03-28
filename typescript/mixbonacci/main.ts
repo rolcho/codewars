@@ -1,4 +1,4 @@
-type SequenceType = "fib" | "pel" | "pad" | "jac" | "tri" | "tet";
+type SequenceType = 'fib' | 'pel' | 'pad' | 'jac' | 'tri' | 'tet';
 
 export function mixbonacci(pattern: SequenceType[], length: number): number[] {
   if (pattern.length === 0 || length === 0) return [];
@@ -86,5 +86,5 @@ export function mixbonacci(pattern: SequenceType[], length: number): number[] {
 }
 
 console.log({
-  results: mixbonacci(["fib", "pad", "pel"], 6),
+  results: mixbonacci(['fib', 'pad', 'pel'], 6),
 });

@@ -14,8 +14,8 @@ export function decoder(encoded: string, marker: string): string {
 
   for (let i = 0; i < text.length; i++) {
     i % 2
-      ? reversed.unshift(text[i].split("").reverse().join(""))
+      ? reversed.unshift(text[i].split('').reverse().join(''))
       : forwarded.push(text[i]);
   }
-  return [...forwarded, ...reversed].join("");
+  return [...forwarded, ...reversed].join('');
 }

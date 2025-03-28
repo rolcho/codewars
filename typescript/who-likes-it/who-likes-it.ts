@@ -27,7 +27,7 @@ export const likes = (a: string[]): string => {
   const [first, second, third] = a;
   const remaining = a.length - 2;
 
-  if (a.length === 0) return "no one likes this";
+  if (a.length === 0) return 'no one likes this';
   if (a.length === 1) return `${first} likes this`;
   if (a.length === 2) return `${first} and ${second} like this`;
   if (a.length === 3) return `${first}, ${second} and ${third} like this`;

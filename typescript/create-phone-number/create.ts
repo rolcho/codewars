@@ -11,14 +11,14 @@
  * createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
  */
 export function createPhoneNumber(numbers: number[]): string {
-  if (numbers.length !== 10) throw new Error("Invalid number of digits");
+  if (numbers.length !== 10) throw new Error('Invalid number of digits');
   for (const num of numbers) {
     if (Number.isNaN(num) || Math.floor(num) !== num || num < 0)
-      throw new Error("Invalid digit");
+      throw new Error('Invalid digit');
   }
-  const areaCode = numbers.splice(0, 3).join("");
-  const firstPart = numbers.splice(0, 3).join("");
-  const secondPart = numbers.join("");
+  const areaCode = numbers.splice(0, 3).join('');
+  const firstPart = numbers.splice(0, 3).join('');
+  const secondPart = numbers.join('');
   const phoneNumber = `(${areaCode}) ${firstPart}-${secondPart}`;
   return phoneNumber;
 }

@@ -1,8 +1,8 @@
-import { describe, expect, it } from "@jest/globals";
-import { sumPairs } from "./sum-of-pairs";
+import { describe, expect, it } from '@jest/globals';
+import { sumPairs } from './sum-of-pairs';
 
-describe("Sum of pairs", () => {
-  it("should return the correct value if 11, 3, 7, 5] has pairs", () => {
+describe('Sum of pairs', () => {
+  it('should return the correct value if 11, 3, 7, 5] has pairs', () => {
     const array = [11, 3, 7, 5];
     const sum = 10;
     const numbers = [3, 7];
@@ -11,7 +11,7 @@ describe("Sum of pairs", () => {
 
     expect(result).toStrictEqual(numbers);
   });
-  it("should return the correct value if [4, 3, 2, 3, 4] has pairs", () => {
+  it('should return the correct value if [4, 3, 2, 3, 4] has pairs', () => {
     const array = [4, 3, 2, 3, 4];
     const sum = 6;
     const numbers = [4, 2];
@@ -20,7 +20,7 @@ describe("Sum of pairs", () => {
 
     expect(result).toStrictEqual(numbers);
   });
-  it("should return the correct value if [10, 5, 2, 3, 7, 5] has pairs", () => {
+  it('should return the correct value if [10, 5, 2, 3, 7, 5] has pairs', () => {
     const array = [10, 5, 2, 3, 7, 5];
     const sum = 10;
     const numbers = [3, 7];

@@ -16,5 +16,5 @@ export function alphabetPosition(text: string): string {
     if (charCode < 97 || charCode > 122) continue;
     positions.push(charCode - 96);
   }
-  return positions.join(" ");
+  return positions.join(' ');
 }

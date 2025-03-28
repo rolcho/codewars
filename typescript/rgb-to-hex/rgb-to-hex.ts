@@ -9,10 +9,10 @@
 export function rgbToHex(r: number, g: number, b: number): string {
   const numToHex = (n: number) => {
     const x = Math.round(n);
-    if (x < 0) return "00";
+    if (x < 0) return '00';
     if (x < 16) return `0${x.toString(16).toUpperCase()}`;
-    if (x > 255) return "FF";
+    if (x > 255) return 'FF';
     return x.toString(16).toUpperCase();
   };
-  return [r, g, b].map(numToHex).join("");
+  return [r, g, b].map(numToHex).join('');
 }

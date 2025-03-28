@@ -1,5 +1,5 @@
 export function minUmbrellas(weather: string[]): number {
-  const rainyWeather = ["rainy", "thunderstorms"];
+  const rainyWeather = ['rainy', 'thunderstorms'];
   let umbrellaAtHome = 0;
   let umbrellaAtWork = 0;
   for (let i = 0; i < weather.length; i++) {
@@ -17,5 +17,5 @@ export function minUmbrellas(weather: string[]): number {
   }
   return umbrellaAtHome + umbrellaAtWork;
 }
-const weather = ["rainy", "rainy", "rainy", "rainy"];
+const weather = ['rainy', 'rainy', 'rainy', 'rainy'];
 console.log(minUmbrellas(weather));

@@ -1,7 +1,7 @@
-import { expect, it } from "@jest/globals";
-import { fibonacciSequence } from "./fibonacci";
+import { expect, it } from '@jest/globals';
+import { fibonacciSequence } from './fibonacci';
 
-it("should generate the correct sequence", () => {
+it('should generate the correct sequence', () => {
   const fibSeq = fibonacciSequence();
   const expectedSequence = [1n, 1n, 2n, 3n, 5n, 8n, 13n, 21n, 34n, 55n];
 

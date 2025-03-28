@@ -1,16 +1,16 @@
-import { describe, expect, it } from "@jest/globals";
-import { evenOrOdd } from "./even-or-odd";
+import { describe, expect, it } from '@jest/globals';
+import { evenOrOdd } from './even-or-odd';
 
-describe("return even or odd", () => {
+describe('return even or odd', () => {
   it("should return 'Even' if number is even", () => {
     const evenNumber = Math.floor((Math.random() * 1_000_000) / 2) * 2;
-    expect(evenOrOdd(evenNumber)).toBe("Even");
+    expect(evenOrOdd(evenNumber)).toBe('Even');
   });
   it("should return 'Odd' if number is odd", () => {
     const oddNumber = Math.floor((Math.random() * 1_000_000) / 2) * 2 + 1;
-    expect(evenOrOdd(oddNumber)).toBe("Odd");
+    expect(evenOrOdd(oddNumber)).toBe('Odd');
   });
   it("should return 'Even' if number is 0", () => {
-    expect(evenOrOdd(0)).toBe("Even");
+    expect(evenOrOdd(0)).toBe('Even');
   });
 });
