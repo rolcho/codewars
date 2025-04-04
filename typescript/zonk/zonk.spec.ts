@@ -10,9 +10,19 @@ describe('getScore', () => {
     expect(getScore(dice)).toBe(0);
   });
 
+  it('returns 0 for (2,3,4)', () => {
+    const dice: number[] = [2, 3, 4];
+    expect(getScore(dice)).toBe(0);
+  });
+
   it('returns 1000 for a straight line', () => {
     const dice = [1, 2, 3, 4, 5, 6];
     expect(getScore(dice)).toBe(1000);
+  });
+
+  it('returns 600 for three 6', () => {
+    const dice = [6, 6, 6, 6];
+    expect(getScore(dice)).toBe(1200);
   });
 
   it('returns 750 for three pairs', () => {

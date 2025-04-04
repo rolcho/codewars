@@ -48,8 +48,6 @@ export function getScore(dice: number[]): number {
   let sum = 0;
 
   sum += numberOfSame(diceMap, 6);
-  if (sum > 0) return sum;
-
   sum += numberOfSame(diceMap, 5);
   sum += numberOfSame(diceMap, 4);
   sum += numberOfSame(diceMap, 3);
