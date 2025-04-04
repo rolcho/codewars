@@ -38,7 +38,8 @@ export function getScore(dice: number[]): number {
     const multiply = n - 2;
     for (const [k, v] of d) {
       if (v === n) {
-        k === 1 ? (subSum += 1000 * multiply) : (subSum += k * 100 * multiply);
+        const base = k === 1 ? 1000 : 100;
+        subSum += k * base * multiply;
       }
     }
     return subSum;
@@ -53,8 +54,10 @@ export function getScore(dice: number[]): number {
   sum += numberOfSame(diceMap, 4);
   sum += numberOfSame(diceMap, 3);
 
-  if (diceMap.has(1) && diceMap.get(1)! < 3) sum += diceMap.get(1)! * 100;
-  if (diceMap.has(5) && diceMap.get(5)! < 3) sum += diceMap.get(5)! * 50;
+  const diceOnes = diceMap.get(1);
+  const diceFives = diceMap.get(5);
+  if (diceOnes !== undefined) if (diceOnes < 3) sum += diceOnes * 100;
+  if (diceFives !== undefined) if (diceFives < 3) sum += diceFives * 50;
 
   return sum;
 }
