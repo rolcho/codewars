@@ -1,6 +1,45 @@
 export function arrayToString(arr: number[]): string {
-  console.log(arr.flat());
-  return '';
+  // 1:3+1,6:6-2,9,5:3,8
+  type subDescription = {
+    start: number | undefined;
+    iteration: number;
+    increment: number;
+  };
+
+  const subStrings: string[] = [];
+  let [firstNumber, secondNumber, nextNumber] = arr.splice(0, 3);
+
+  const description: subDescription = {
+    start: firstNumber,
+    iteration: 1,
+    increment: secondNumber - firstNumber,
+  };
+
+  const createStringFrom = (d: subDescription): string => {
+    if (d.iteration === 1) return `${d.start}`;
+    if (d.increment === 0) return `${d.start}:${d.iteration}`;
+    return `${d.start}:${d.iteration}+${d.increment}`;
+  };
+
+  while (nextNumber !== undefined) {
+    if (nextNumber === firstNumber) {
+      description.iteration += 1;
+      nextNumber = arr.shift() as number;
+      continue;
+    }
+    if (nextNumber - secondNumber === secondNumber - firstNumber) {
+      [firstNumber, secondNumber] = [secondNumber, nextNumber];
+      nextNumber = arr.shift() as number;
+      description.iteration += 1;
+      continue;
+    }
+    subStrings.push(createStringFrom(description));
+    description.start = secondNumber;
+    description.iteration = 1;
+    description.increment = nextNumber - secondNumber;
+    nextNumber = arr.shift() as number;
+  }
+  return subStrings.join(',');
 }
 
 export function stringToArray(str: string): number[] {
@@ -59,3 +98,4 @@ export function stringToArray(str: string): number[] {
 }
 
 console.log(stringToArray('1:3+1,6:6-2,9,5:3,8'));
+console.log(arrayToString([1, 2, 3, 6, 4, 2, 0, -2, -4, 9, 5, 5, 5, 8]));
