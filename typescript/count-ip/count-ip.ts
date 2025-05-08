@@ -18,7 +18,7 @@ export function ipsBetween1(start: string, end: string): number {
   }
 
   for (let i = 0; i < 4; i++) {
-    result += (endAddr[i] - firstAddr[i]) * Math.pow(256, 3 - i);
+    result += (endAddr[i] - firstAddr[i]) * 256 ** (3 - i);
   }
 
   return result;
