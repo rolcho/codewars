@@ -3,5 +3,3 @@ export default function add(x: number): any {
   fn.valueOf = () => x;
   return fn;
 }
-
-console.log(add(1)(2)(4));
