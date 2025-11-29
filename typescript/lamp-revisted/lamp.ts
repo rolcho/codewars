@@ -1,16 +1,24 @@
 export class Lamp {
-  on = false;
-  color: string;
+  private _on = false;
+  private readonly _color: string;
 
   constructor(color: string) {
-    this.color = color;
+    this._color = color;
+  }
+
+  get color(): string {
+    return this._color;
+  }
+
+  get on(): boolean {
+    return this._on;
   }
 
   toggleSwitch(): void {
-    this.on = !this.on;
+    this._on = !this._on;
   }
 
   state(): string {
-    return `The lamp is ${this.on ? 'on' : 'off'}.`;
+    return `The lamp is ${this._on ? 'on' : 'off'}.`;
   }
 }
