@@ -27,7 +27,6 @@ describe('Test lamp class', () => {
 
     expect(greenLamp.color).toBe('Green');
     expect(greenLamp.on).toBe(false);
-
     expect(greenLamp.state()).toBe('The lamp is off.');
   });
 
