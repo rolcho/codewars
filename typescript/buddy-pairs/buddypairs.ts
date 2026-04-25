@@ -21,9 +21,40 @@ Examples
 
 (depending on the languages)
 
-buddy(10, 50) returns [48, 75] 
+buddy(10, 50) returns [48, 75]
 buddy(48, 50) returns [48, 75]
 or
 buddy(10, 50) returns "(48 75)"
 buddy(48, 50) returns "(48 75)"
  */
+
+function sumDivisors(num: number): number {
+  if (num <= 1) return 0;
+  let sum = 1;
+  const sqrt = Math.floor(Math.sqrt(num));
+
+  for (let i = 2; i <= sqrt; i++) {
+    if (num % i === 0) {
+      sum += i;
+      const counterpart = num / i;
+      if (counterpart !== i) {
+        sum += counterpart;
+      }
+    }
+  }
+  return sum;
+}
+
+function buddyPairs(start: number, limit: number): number[] {
+  for (let n = start; n <= limit; n++) {
+    const sumN = sumDivisors(n);
+    const sumM = sumDivisors(sumN - 1);
+    if (sumM === n + 1 && sumN - 1 > n) {
+      return [n, sumN - 1];
+    }
+  }
+  return [];
+}
+
+console.log(buddyPairs(2382, 3679));
+console.log(buddyPairs(2382, 3679));
