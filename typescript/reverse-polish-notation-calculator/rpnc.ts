@@ -4,7 +4,7 @@ export function calc(expr: string): number {
     if (o === '+') return (a + b) as number;
     if (o === '-') return (a - b) as number;
     if (o === '*') return (a * b) as number;
-    if (o === '/') return (a / b) as number;
+    return (a / b) as number;
   };
 
   const tokens = expr.split(' ');
