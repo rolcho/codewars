@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from 'vitest';
 import { Kata } from './high-and-low';
 
 describe('return high and low as string', () => {

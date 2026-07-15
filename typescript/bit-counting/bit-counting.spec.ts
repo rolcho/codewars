@@ -1,4 +1,4 @@
-import { describe, it, expect } from '@jest/globals';
+import { describe, it, expect } from 'vitest';
 import { countBits } from './bit-counting';
 
 describe('count 1 digits in number converted to binary', () => {

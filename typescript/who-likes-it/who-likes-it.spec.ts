@@ -1,4 +1,4 @@
-import { describe, it, expect } from '@jest/globals';
+import { describe, it, expect } from 'vitest';
 import { likes } from './who-likes-it';
 
 describe('likes function formats name lists correctly', () => {

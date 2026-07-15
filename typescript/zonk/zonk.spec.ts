@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from 'vitest';
 import { getScore } from './zonk';
 
 describe('getScore', () => {
@@ -48,5 +48,25 @@ describe('getScore', () => {
   it('returns 100 for two fives', () => {
     const dice = [5, 2, 4, 6, 5];
     expect(getScore(dice)).toBe(100);
+  });
+
+  it('returns 500 for three fives', () => {
+    const dice = [5, 2, 5, 6, 5];
+    expect(getScore(dice)).toBe(500);
+  });
+
+  it('returns 1000 for four fives', () => {
+    const dice = [5, 2, 5, 5, 5];
+    expect(getScore(dice)).toBe(1000);
+  });
+
+  it('returns 1500 for four fives', () => {
+    const dice = [5, 2, 5, 5, 5, 5];
+    expect(getScore(dice)).toBe(1500);
+  });
+
+  it('returns 2000 for six fives', () => {
+    const dice = [5, 5, 5, 5, 5, 5];
+    expect(getScore(dice)).toBe(2000);
   });
 });

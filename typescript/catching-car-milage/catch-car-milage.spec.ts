@@ -1,5 +1,5 @@
 import { isInteresting } from './catch-car-milage';
-import { describe, it, expect } from '@jest/globals';
+import { describe, it, expect } from 'vitest';
 
 describe('isInteresting', () => {
   describe('Awesome phrases', () => {

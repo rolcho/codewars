@@ -1,5 +1,5 @@
+import { describe, expect, it } from 'vitest';
 import { type matrix, matrixAddition } from './add-matrices';
-import { describe, it, expect } from '@jest/globals';
 
 describe('Sum two square matrices', () => {
   it('should return the correct sum of two 3 by 3 matrices', () => {
