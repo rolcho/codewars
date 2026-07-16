@@ -23,39 +23,55 @@ function preProcess(dice: number[]): Collection {
   return c;
 }
 
+function isStraight(dice: number[]): boolean {
+  return new Set(dice).size === 6;
+}
+
+function isThreePairs(dice: Collection): boolean {
+  return (
+    dice.size === 3 && Array.from(dice.values()).every((value) => value === 2)
+  );
+}
+
+function scoreOfAKind(dice: Collection, amount: number): number {
+  let score = 0;
+  const multiplier = amount - 2;
+
+  for (const [value, count] of dice) {
+    if (count === amount) {
+      const baseScore = value === 1 ? 1000 : 100;
+      score += value * baseScore * multiplier;
+    }
+  }
+
+  return score;
+}
+
+function scoreLooseDice(
+  dice: Collection,
+  value: number,
+  points: number,
+): number {
+  const count = dice.get(value);
+  return count !== undefined && count < 3 ? count * points : 0;
+}
+
 export function getScore(dice: number[]): number {
-  const isStraight = (d: number[]): boolean => new Set(d).size === 6;
   if (isStraight(dice)) return 1000;
 
   const diceMap = preProcess(dice);
 
-  const isThreePairs = (d: Collection): boolean =>
-    d.size === 3 && Array.from(d.values()).every((v: number) => v === 2);
   if (isThreePairs(diceMap)) return 750;
-
-  const numberOfSame = (d: Collection, n: number): number => {
-    let subSum = 0;
-    const multiply = n - 2;
-    for (const [k, v] of d) {
-      if (v === n) {
-        const base = k === 1 ? 1000 : 100;
-        subSum += k * base * multiply;
-      }
-    }
-    return subSum;
-  };
 
   let sum = 0;
 
-  sum += numberOfSame(diceMap, 6);
-  sum += numberOfSame(diceMap, 5);
-  sum += numberOfSame(diceMap, 4);
-  sum += numberOfSame(diceMap, 3);
+  sum += scoreOfAKind(diceMap, 6);
+  sum += scoreOfAKind(diceMap, 5);
+  sum += scoreOfAKind(diceMap, 4);
+  sum += scoreOfAKind(diceMap, 3);
 
-  const diceOnes = diceMap.get(1);
-  const diceFives = diceMap.get(5);
-  if (diceOnes !== undefined) if (diceOnes < 3) sum += diceOnes * 100;
-  if (diceFives !== undefined) if (diceFives < 3) sum += diceFives * 50;
+  sum += scoreLooseDice(diceMap, 1, 100);
+  sum += scoreLooseDice(diceMap, 5, 50);
 
   return sum;
 }
