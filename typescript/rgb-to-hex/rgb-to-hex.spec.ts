@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { rgbToHex } from './rgb-to-hex.ts';
 
 describe('convert rgb values to hex string', () => {

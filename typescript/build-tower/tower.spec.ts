@@ -1,5 +1,5 @@
+import { describe, expect, it } from 'vitest';
 import { towerBuilder } from './tower.ts';
-import { it, describe, expect } from 'vitest';
 
 describe('test build pyramid', () => {
   it('should return 3 element array at height 3', () => {

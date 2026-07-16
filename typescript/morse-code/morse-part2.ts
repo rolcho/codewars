@@ -1,4 +1,5 @@
 import { MORSE_CODE } from './preloaded.ts';
+
 const getFrequency = (rawBits: string): number => {
   while (rawBits.length > 0 && rawBits[0] === '0')
     rawBits = rawBits.substring(1);

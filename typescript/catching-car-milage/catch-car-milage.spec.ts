@@ -1,5 +1,5 @@
+import { describe, expect, it } from 'vitest';
 import { isInteresting } from './catch-car-milage';
-import { describe, it, expect } from 'vitest';
 
 describe('isInteresting', () => {
   describe('Awesome phrases', () => {
