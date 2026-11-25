@@ -29,4 +29,13 @@ describe('count levels', () => {
 
     expect(result).toBe(expected);
   });
+  it('should have 0 level, from 5 bonus at 10 price', () => {
+    const bonus = 5;
+    const price = 10;
+    const expected = 0;
+
+    const result = beeramid(bonus, price);
+
+    expect(result).toBe(expected);
+  });
 });
